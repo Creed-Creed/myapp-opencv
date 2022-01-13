@@ -1,5 +1,3 @@
-
-
 from flask import Flask, render_template, Response
 from cv2 import cv2
 
