@@ -1,6 +1,6 @@
 
 
-from flask import Flask,render_template,Response
+from flask import Flask, render_template, Response
 from cv2 import cv2
 
 
@@ -15,16 +15,12 @@ def get_frame():
     c = 0
 
     while True:
-        ret,img=cam.read()
-        if c % 8 == 0:
-            cv2.imwrite("{}.jpg".format(c), img)
-        c += 1
-        imgencode=cv2.imencode('.jpg',img)[1]
+        ret, img=cam.read()
+        imgencode=cv2.imencode('.jpg', img)[1]
         stringData = imgencode.tostring()
-        
+
         yield (b'--frame\r\n'
         b'Content-Type: Text/plain\r\n\r\n' + stringData+b'\r\n')
-    
 
 @app.route('/video_stream')
 def video_stream():
