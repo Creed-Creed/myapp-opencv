@@ -1,1 +1,1 @@
-web: gunicorn myapp-opencv:mySite
+web: gunicorn app:mySite
