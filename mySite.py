@@ -12,7 +12,7 @@ def get_frame():
     cam = cv2.VideoCapture(0)
     c = 0
 
-    while True:
+    while 1:
         ret, img=cam.read()
         imgencode=cv2.imencode('.jpg', img)[1]
         stringData = imgencode.tostring()
